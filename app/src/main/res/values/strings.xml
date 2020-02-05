@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CardScan Demo</string>
+
+    <string name="scan_card">Scan Card</string>
+    <string name="scan_card_debug">Scan Card (Debug)</string>
+
+    <string name="null_result">Result is null</string>
+    <string name="scan_canceled">Scan Canceled</string>
+</resources>
