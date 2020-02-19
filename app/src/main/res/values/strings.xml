@@ -4,6 +4,8 @@
     <string name="scan_card">Scan Card</string>
     <string name="scan_card_debug">Scan Card (Debug)</string>
 
-    <string name="null_result">Result is null</string>
     <string name="scan_canceled">Scan Canceled</string>
+    <string name="enter_manually">Enter card manually</string>
+    <string name="camera_error">Camera error</string>
+    <string name="unknown_reason">Unknown reason</string>
 </resources>
