@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.getbouncer.cardscan.ui.CardScanActivity;
@@ -13,7 +14,7 @@ import com.getbouncer.cardscan.ui.card.ScanResult;
 public class LaunchActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
@@ -25,7 +26,7 @@ public class LaunchActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (CardScanActivity.isScanResult(requestCode)) {
@@ -37,17 +38,25 @@ public class LaunchActivity extends AppCompatActivity {
                     handleCardScanCancelled();
                 }
             } else if (resultCode == Activity.RESULT_CANCELED) {
-                int cancelledReason = data.getIntExtra(CardScanActivity.RESULT_CANCELED_REASON, -1);
-                if (cancelledReason == CardScanActivity.CANCELED_REASON_ENTER_MANUALLY) {
+                int canceledReason = getCanceledReason(data);
+                if (canceledReason == CardScanActivity.CANCELED_REASON_ENTER_MANUALLY) {
                     handleEnterCardManually();
-                } else if (cancelledReason == CardScanActivity.CANCELED_REASON_CAMERA_ERROR) {
+                } else if (canceledReason == CardScanActivity.CANCELED_REASON_CAMERA_ERROR) {
                     handleCameraError();
-                } else if (cancelledReason == CardScanActivity.CANCELED_REASON_USER) {
+                } else if (canceledReason == CardScanActivity.CANCELED_REASON_USER) {
                     handleCardScanCancelled();
                 } else {
                     handleCardScanCancelledUnknown();
                 }
             }
+        }
+    }
+
+    private int getCanceledReason(@Nullable Intent data) {
+        if (data != null) {
+            return data.getIntExtra(CardScanActivity.RESULT_CANCELED_REASON, -1);
+        } else {
+            return -1;
         }
     }
 

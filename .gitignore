@@ -16,6 +16,7 @@
 /.idea/codeStyles/Project.xml
 /.idea/codeStyles/codeStyleConfig.xml
 /.idea/.name
+/.idea/checkstyle-idea.xml
 .DS_Store
 /build
 /captures
