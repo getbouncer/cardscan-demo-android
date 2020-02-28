@@ -23,6 +23,8 @@ public class LaunchActivity extends AppCompatActivity {
 
         findViewById(R.id.scanCardDebug).setOnClickListener(v ->
                 CardScanActivity.start(LaunchActivity.this, true, null, true));
+
+        CardScanActivity.warmUp(this);
     }
 
     @Override
