@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">CardScan Demo</string>
 
-    <string name="scan_card">Scan Card</string>
-    <string name="scan_card_debug">Scan Card (Debug)</string>
+    <string name="scan_card_1">Scan Card (Camera 1 API)</string>
+    <string name="scan_card_1_debug">Scan Card (Camera 1 API) (Debug)</string>
+    <string name="scan_card_2">Scan Card (Camera 2 API)</string>
+    <string name="scan_card_2_debug">Scan Card (Camera 2 API) (Debug)</string>
 
     <string name="scan_canceled">Scan Canceled</string>
     <string name="enter_manually">Enter card manually</string>

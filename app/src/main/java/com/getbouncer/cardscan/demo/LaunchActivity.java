@@ -18,11 +18,17 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        findViewById(R.id.scan_button).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, null, false));
+        findViewById(R.id.scanCard1Button).setOnClickListener(v ->
+                CardScanActivity.start(LaunchActivity.this, true, null, false, false));
 
-        findViewById(R.id.scanCardDebug).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, null, true));
+        findViewById(R.id.scanCard1DebugButton).setOnClickListener(v ->
+                CardScanActivity.start(LaunchActivity.this, true, null, false, true));
+
+        findViewById(R.id.scanCard2Button).setOnClickListener(v ->
+                CardScanActivity.start(LaunchActivity.this, true, null, true, false));
+
+        findViewById(R.id.scanCard2DebugButton).setOnClickListener(v ->
+                CardScanActivity.start(LaunchActivity.this, true, null, true, true));
 
         CardScanActivity.warmUp(this);
     }
