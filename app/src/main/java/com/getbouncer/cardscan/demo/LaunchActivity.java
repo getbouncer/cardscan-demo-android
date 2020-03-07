@@ -19,16 +19,16 @@ public class LaunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launch);
 
         findViewById(R.id.scanCard1Button).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, null, false, false));
+                CardScanActivity.start(LaunchActivity.this, true, false, null, false, false));
 
         findViewById(R.id.scanCard1DebugButton).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, null, false, true));
+                CardScanActivity.start(LaunchActivity.this, true, false, null, false, true));
 
         findViewById(R.id.scanCard2Button).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, null, true, false));
+                CardScanActivity.start(LaunchActivity.this, true, false, null, true, false));
 
         findViewById(R.id.scanCard2DebugButton).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, null, true, true));
+                CardScanActivity.start(LaunchActivity.this, true, false, null, true, true));
 
         CardScanActivity.warmUp(this);
     }
@@ -53,6 +53,8 @@ public class LaunchActivity extends AppCompatActivity {
                     handleCameraError();
                 } else if (canceledReason == CardScanActivity.CANCELED_REASON_USER) {
                     handleCardScanCancelled();
+                } else if (canceledReason == CardScanActivity.CANCELED_REASON_ANALYZER_FAILURE) {
+                    handleAnalyzerFailure();
                 } else {
                     handleCardScanCancelledUnknown();
                 }
@@ -89,6 +91,12 @@ public class LaunchActivity extends AppCompatActivity {
     private void handleCameraError() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.camera_error);
+        builder.show();
+    }
+
+    private void handleAnalyzerFailure() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.analyzer_error);
         builder.show();
     }
 

@@ -6,8 +6,9 @@
     <string name="scan_card_2">Scan Card (Camera 2 API)</string>
     <string name="scan_card_2_debug">Scan Card (Camera 2 API) (Debug)</string>
 
-    <string name="scan_canceled">Scan Canceled</string>
+    <string name="scan_canceled">Scan canceled</string>
     <string name="enter_manually">Enter card manually</string>
     <string name="camera_error">Camera error</string>
+    <string name="analyzer_error">Analyzer error</string>
     <string name="unknown_reason">Unknown reason</string>
 </resources>
