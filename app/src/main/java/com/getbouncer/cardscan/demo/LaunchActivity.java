@@ -30,7 +30,7 @@ public class LaunchActivity extends AppCompatActivity {
         findViewById(R.id.scanCard2DebugButton).setOnClickListener(v ->
                 CardScanActivity.start(LaunchActivity.this, true, false, null, true, true));
 
-        CardScanActivity.warmUp(this);
+        CardScanActivity.warmUp(this, "qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn");
     }
 
     @Override
