@@ -21,16 +21,52 @@ public class LaunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launch);
 
         findViewById(R.id.scanCard1Button).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, API_KEY, true, false, null, false, false));
+                CardScanActivity.start(
+                        /* activity */LaunchActivity.this,
+                        /* apiKey */ API_KEY,
+                        /* enableEnterCardManually */ true,
+                        /* displayCardPan */ false,
+                        /* requiredCardNumber */ null,
+                        /* useCameraApi2 */ false,
+                        /* enableDebug */ false
+                )
+        );
 
         findViewById(R.id.scanCard1DebugButton).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, API_KEY, true, false, null, false, true));
+                CardScanActivity.start(
+                        /* activity */LaunchActivity.this,
+                        /* apiKey */ API_KEY,
+                        /* enableEnterCardManually */ true,
+                        /* displayCardPan */ false,
+                        /* requiredCardNumber */ null,
+                        /* useCameraApi2 */ false,
+                        /* enableDebug */ true
+                )
+        );
 
         findViewById(R.id.scanCard2Button).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, API_KEY, true, false, null, true, false));
+                CardScanActivity.start(
+                        /* activity */LaunchActivity.this,
+                        /* apiKey */ API_KEY,
+                        /* enableEnterCardManually */ true,
+                        /* displayCardPan */ false,
+                        /* requiredCardNumber */ null,
+                        /* useCameraApi2 */ true,
+                        /* enableDebug */ false
+                )
+        );
 
         findViewById(R.id.scanCard2DebugButton).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, API_KEY, true, false, null, true, true));
+                CardScanActivity.start(
+                        /* activity */LaunchActivity.this,
+                        /* apiKey */ API_KEY,
+                        /* enableEnterCardManually */ true,
+                        /* displayCardPan */ false,
+                        /* requiredCardNumber */ null,
+                        /* useCameraApi2 */ true,
+                        /* enableDebug */ true
+                )
+        );
 
         CardScanActivity.warmUp(this);
     }
