@@ -13,24 +13,26 @@ import com.getbouncer.cardscan.ui.card.ScanResult;
 
 public class LaunchActivity extends AppCompatActivity {
 
+    private static final String API_KEY = "qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
         findViewById(R.id.scanCard1Button).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, false, null, false, false));
+                CardScanActivity.start(LaunchActivity.this, API_KEY, true, false, null, false, false));
 
         findViewById(R.id.scanCard1DebugButton).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, false, null, false, true));
+                CardScanActivity.start(LaunchActivity.this, API_KEY, true, false, null, false, true));
 
         findViewById(R.id.scanCard2Button).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, false, null, true, false));
+                CardScanActivity.start(LaunchActivity.this, API_KEY, true, false, null, true, false));
 
         findViewById(R.id.scanCard2DebugButton).setOnClickListener(v ->
-                CardScanActivity.start(LaunchActivity.this, true, false, null, true, true));
+                CardScanActivity.start(LaunchActivity.this, API_KEY, true, false, null, true, true));
 
-        CardScanActivity.warmUp(this, "qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn");
+        CardScanActivity.warmUp(this);
     }
 
     @Override
