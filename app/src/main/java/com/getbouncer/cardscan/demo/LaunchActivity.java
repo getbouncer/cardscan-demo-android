@@ -25,7 +25,7 @@ public class LaunchActivity extends AppCompatActivity {
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
-                        /* displayCardPan */ false,
+                        /* displayCardPan */ true,
                         /* requiredCardNumber */ null,
                         /* useCameraApi2 */ false,
                         /* enableDebug */ false
@@ -37,7 +37,7 @@ public class LaunchActivity extends AppCompatActivity {
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
-                        /* displayCardPan */ false,
+                        /* displayCardPan */ true,
                         /* requiredCardNumber */ null,
                         /* useCameraApi2 */ false,
                         /* enableDebug */ true
@@ -49,7 +49,7 @@ public class LaunchActivity extends AppCompatActivity {
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
-                        /* displayCardPan */ false,
+                        /* displayCardPan */ true,
                         /* requiredCardNumber */ null,
                         /* useCameraApi2 */ true,
                         /* enableDebug */ false
@@ -61,7 +61,7 @@ public class LaunchActivity extends AppCompatActivity {
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
-                        /* displayCardPan */ false,
+                        /* displayCardPan */ true,
                         /* requiredCardNumber */ null,
                         /* useCameraApi2 */ true,
                         /* enableDebug */ true
