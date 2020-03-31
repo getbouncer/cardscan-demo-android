@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.getbouncer.cardscan.ui.CardScanActivity;
 import com.getbouncer.cardscan.ui.card.ScanResult;
 
+import org.jetbrains.annotations.NotNull;
+
 public class LaunchActivity extends AppCompatActivity {
 
     private static final String API_KEY = "qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn";
@@ -20,50 +22,24 @@ public class LaunchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launch);
 
-        findViewById(R.id.scanCard1Button).setOnClickListener(v ->
+        findViewById(R.id.scanCardButton).setOnClickListener(v ->
                 CardScanActivity.start(
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
                         /* displayCardPan */ true,
                         /* requiredCardNumber */ null,
-                        /* useCameraApi2 */ false,
                         /* enableDebug */ false
                 )
         );
 
-        findViewById(R.id.scanCard1DebugButton).setOnClickListener(v ->
+        findViewById(R.id.scanCardDebugButton).setOnClickListener(v ->
                 CardScanActivity.start(
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
                         /* displayCardPan */ true,
                         /* requiredCardNumber */ null,
-                        /* useCameraApi2 */ false,
-                        /* enableDebug */ true
-                )
-        );
-
-        findViewById(R.id.scanCard2Button).setOnClickListener(v ->
-                CardScanActivity.start(
-                        /* activity */LaunchActivity.this,
-                        /* apiKey */ API_KEY,
-                        /* enableEnterCardManually */ true,
-                        /* displayCardPan */ true,
-                        /* requiredCardNumber */ null,
-                        /* useCameraApi2 */ true,
-                        /* enableDebug */ false
-                )
-        );
-
-        findViewById(R.id.scanCard2DebugButton).setOnClickListener(v ->
-                CardScanActivity.start(
-                        /* activity */LaunchActivity.this,
-                        /* apiKey */ API_KEY,
-                        /* enableEnterCardManually */ true,
-                        /* displayCardPan */ true,
-                        /* requiredCardNumber */ null,
-                        /* useCameraApi2 */ true,
                         /* enableDebug */ true
                 )
         );
@@ -108,7 +84,7 @@ public class LaunchActivity extends AppCompatActivity {
         }
     }
 
-    private void handleCardScanned(ScanResult scanResult) {
+    private void handleCardScanned(@NotNull ScanResult scanResult) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(scanResult.getPan());
         builder.show();
