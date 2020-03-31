@@ -12,40 +12,22 @@
         tools:context=".LaunchActivity">
 
         <Button
-            android:id="@+id/scanCard1Button"
+            android:id="@+id/scanCardButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/scan_card_1" />
+            android:text="@string/scan_card" />
 
         <Button
-            android:id="@+id/scanCard1DebugButton"
+            android:id="@+id/scanCardDebugButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="@string/scan_card_1_debug" />
-
-        <Button
-            android:id="@+id/scanCard2Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/scan_card_2" />
-
-        <Button
-            android:id="@+id/scanCard2DebugButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/scan_card_2_debug" />
+            android:text="@string/scan_card_debug" />
 
     </LinearLayout>
 
