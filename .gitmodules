@@ -1,0 +1,6 @@
+[submodule "cardscan-ui-android"]
+	path = cardscan-ui-android
+	url = https://github.com/getbouncer/cardscan-ui-android
+[submodule "cardscan-base-android"]
+	path = cardscan-base-android
+	url = https://github.com/getbouncer/cardscan-base-android
