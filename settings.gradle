@@ -1,2 +1,4 @@
-include ':app'
+include ':app', ':cardscan-base', ':cardscan-ui'
 rootProject.name='cardscan-demo-android'
+project(':cardscan-base').projectDir = new File('cardscan-base-android/cardscan-base')
+project(':cardscan-ui').projectDir = new File('cardscan-ui-android/cardscan-ui')
