@@ -22,6 +22,6 @@ jobs:
         with:
           java-version: 1.8
       - name: Lint
-        run: ./gradlew ktlint
+        run: ./gradlew app:ktlint
       - name: CheckStyle
-        run: ./gradlew checkstyle
+        run: ./gradlew app:checkstyle
