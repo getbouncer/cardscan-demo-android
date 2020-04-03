@@ -24,7 +24,7 @@ public class LaunchActivity extends AppCompatActivity {
 
         findViewById(R.id.scanCardButton).setOnClickListener(v ->
                 CardScanActivity.start(
-                        /* activity */LaunchActivity.this,
+                        /* activity */ LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
                         /* displayCardPan */ false,
