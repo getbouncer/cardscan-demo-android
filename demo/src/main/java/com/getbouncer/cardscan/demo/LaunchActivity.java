@@ -27,8 +27,9 @@ public class LaunchActivity extends AppCompatActivity {
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
-                        /* displayCardPan */ true,
+                        /* displayCardPan */ false,
                         /* requiredCardNumber */ null,
+                        /* displayCardScanLogo */ true,
                         /* enableDebug */ false
                 )
         );
@@ -37,9 +38,10 @@ public class LaunchActivity extends AppCompatActivity {
                 CardScanActivity.start(
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
-                        /* enableEnterCardManually */ true,
+                        /* enableEnterCardManually */ false,
                         /* displayCardPan */ true,
                         /* requiredCardNumber */ null,
+                        /* displayCardScanLogo */ false,
                         /* enableDebug */ true
                 )
         );
