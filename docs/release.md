@@ -11,8 +11,7 @@ CardScan release guide
 
 ## Versioning
 
-The release version of this library is determined by the value of the `version` field in the
-[gradle.properties](../gradle.properties) file.
+The release version of this library is determined by the value of the `version` field in the [gradle.properties](../gradle.properties) file.
 
 ## Creating a new release
 
@@ -47,7 +46,7 @@ The release version of this library is determined by the value of the `version` 
 
 ## Installing to local maven
 
-* execute `./gradlew install`
+* execute `./gradlew cardscan-demo:install`
 
 ## Installing to BinTray
 
@@ -61,9 +60,9 @@ The release version of this library is determined by the value of the `version` 
 
 1. build and upload the library
     ```bash
-    ./gradlew build
-    ./gradlew install
-    ./gradlew bintrayUpload
+    ./gradlew cardscan-demo:build
+    ./gradlew cardscan-demo:install
+    ./gradlew cardscan-demo:bintrayUpload
     ```
 
 1. Make sure you update docs in this readme and the apidocs repo.

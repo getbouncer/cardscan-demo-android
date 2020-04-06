@@ -1,8 +1,8 @@
-# CardScan
+# CardScan Demo
 
 This repository serves as a demonstration for the CardScan library. [CardScan](https://cardscan.io/) is a relatively small library (1.9 MB) that provides fast and accurate payment card scanning.
 
-CardScan serves as the foundation for CardVerify enterprise libraries, which validate the authenticity of payment cards as they are scanned.
+CardScan is the foundation for CardVerify enterprise libraries, which validate the authenticity of payment cards as they are scanned.
 
 ![CardScan](docs/images/cardscan_demo.gif)
 
@@ -23,6 +23,8 @@ CardScan serves as the foundation for CardVerify enterprise libraries, which val
 * AndroidX compatibility
 * Kotlin coroutine compatibility
 
+Note: Your app does not have to be written in kotlin to integrate cardscan, but must be able to depend on kotlin functionality.
+
 ## Demo
 
 This repository contains a demonstration app for the CardScan libraries. To build and install this library follow the following steps:
@@ -36,8 +38,6 @@ This repository contains a demonstration app for the CardScan libraries. To buil
     a. Using android studio, open the directory `cardscan-demo-android`. Install the app on your device or an emulator by clicking the play button in the top right of android studio.
     
     ![build_android_studio](docs/images/build_android_studio.png)
-    
-  
     
     b. Using gradle, build the demo app by executing the following command:
     
@@ -59,61 +59,9 @@ dependencies {
 
 ## Using CardScan
 
-CardScan UI provides a user interface through which payment cards can be scanned.
+Most apps that integrate CardScan should do so with the [CardScan UI library](https://github.com/getbouncer/cardscan-ui-android). See the README file in that repository for details on integration.
 
-```kotlin
-class MyActivity : Activity {
-
-    /**
-     * This method should be called as soon in the application as possible to give time for
-     * the SDK to warm up ML model processing.
-     */
-    override fun onCreate(savedInstanceState: Bundle?) {
-        CardScanActivity.warmUp(this)
-    }
-
-    private fun onScanCardClicked() {
-        CardScanActivity.start(this, enableEnterCardManually = true)
-    }
-    
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
-        if (CardScanActivity.isScanResult(requestCode)) {
-            if (resultCode == Activity.RESULT_OK) {
-                handleCardScanSuccess(CardScanActivity.getScannedCard(data))
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                handleCardScanCanceled(data.getIntExtra(RESULT_CANCELED_REASON, -1))
-            }
-        }
-    }
-    
-    private fun handleCardScanSuccess(result: ScanResult) {
-        // do something with the scanned credit card
-    }
-    
-    private fun handleCardScanCanceled(reason: Int) = when (reason) {
-        CANCELED_REASON_USER -> handleUserCanceled()
-        CANCELED_REASON_ENTER_MANUALLY -> handleEnterCardManually()
-        CANCELED_REASON_CAMERA_ERROR -> handleCameraError()
-        else -> handleCardScanFailed()
-    }
-    
-    private fun handleUserCanceled() {
-        // do something when the user cancels the card scan
-    }
-    
-    private fun handleEnterCardManually() {
-        // do something when the user wants to enter a card manually
-    }
-    
-    private fun handleCameraError() {
-        // do something when camera had an error
-    }
-    
-    private fun handleCardScanFailed() {
-        // do something when scanning a card failed
-    }
-}
-```
+To build a custom user interface on top of the CardScan framework, use the [CardScan base library](https://github.com/getbouncer/cardscan-base-android). See the README file in that repository for details on integration.
 
 ## Customizing CardScan
 
@@ -121,7 +69,7 @@ CardScan is built to be customized to fit your UI.
 
 ### Basic modifications
 
-To modify text, colors, or padding of the default UI, see the [customization](docs/customize.md) documentation.
+To modify text, colors, or padding of the default UI, see the [customization](https://github.com/getbouncer/cardscan-ui-android/blob/master/docs/customize.md) documentation.
 
 ### Extensive modifications
 
@@ -137,4 +85,4 @@ Adam Wushensky, Sam King, and Zain ul Abi Din
 
 ## License
 
-CardScan is available under non-commercial and commercial licenses. See the LICENSE file for more info.
+CardScan is available under non-commercial and commercial licenses. See the [LICENSE](LICENSE.md) file for more info.
