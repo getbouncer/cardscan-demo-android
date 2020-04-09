@@ -85,4 +85,18 @@ Adam Wushensky, Sam King, and Zain ul Abi Din
 
 ## License
 
-CardScan is available under non-commercial and commercial licenses. See the [LICENSE](LICENSE.md) file for more info.
+CardScan is available under paid and free licenses. See the [LICENSE](LICENSE) file for the full license text.
+
+In short, CardScan is free for use forever for non-commercial applications, and free for use for 90 days for commercial applications, after which use must be discontinued or an agreement made with Bouncer Technologies, Inc.
+
+Allowed:
+* Contributions (contributors must agree to the [CLA](Contributor%20License%20Agreement))
+* Modifications as needed to work in your app
+* Inclusion and distributed in your app
+
+Not Allowed:
+* Redistribution under a different license
+* Removing attribution
+* Modifying logos
+* Use for more than 90 days in a commercial application
+* Sue Bouncer Technologies, Inc. for problems caused by this library
