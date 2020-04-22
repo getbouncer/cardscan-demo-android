@@ -1,6 +1,5 @@
 package com.getbouncer.cardscan.demo;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +8,13 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.getbouncer.cardscan.ui.CardScanActivity;
+import com.getbouncer.cardscan.CardScanActivity;
+import com.getbouncer.cardscan.CardScanActivityResultHandler;
 import com.getbouncer.cardscan.ui.card.ScanResult;
 
 import org.jetbrains.annotations.NotNull;
 
-public class LaunchActivity extends AppCompatActivity {
+public class LaunchActivity extends AppCompatActivity implements CardScanActivityResultHandler {
 
     private static final String API_KEY = "qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn";
 
@@ -61,69 +61,47 @@ public class LaunchActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (CardScanActivity.isScanResult(requestCode)) {
-            if (resultCode == Activity.RESULT_OK && data != null) {
-                ScanResult scanResult = CardScanActivity.getScannedCard(data);
-                if (scanResult != null) {
-                    handleCardScanned(scanResult);
-                } else {
-                    handleCardScanCancelled();
-                }
-            } else if (resultCode == Activity.RESULT_CANCELED) {
-                int canceledReason = getCanceledReason(data);
-                if (canceledReason == CardScanActivity.CANCELED_REASON_ENTER_MANUALLY) {
-                    handleEnterCardManually();
-                } else if (canceledReason == CardScanActivity.CANCELED_REASON_CAMERA_ERROR) {
-                    handleCameraError();
-                } else if (canceledReason == CardScanActivity.CANCELED_REASON_USER) {
-                    handleCardScanCancelled();
-                } else if (canceledReason == CardScanActivity.CANCELED_REASON_ANALYZER_FAILURE) {
-                    handleAnalyzerFailure();
-                } else {
-                    handleCardScanCancelledUnknown();
-                }
-            }
+            CardScanActivity.parseScanResult(resultCode, data, this);
         }
     }
 
-    private int getCanceledReason(@Nullable Intent data) {
-        if (data != null) {
-            return data.getIntExtra(CardScanActivity.RESULT_CANCELED_REASON, -1);
-        } else {
-            return -1;
-        }
-    }
-
-    private void handleCardScanned(@NotNull ScanResult scanResult) {
+    @Override
+    public void cardScanned(@Nullable String scanId, @NotNull ScanResult scanResult) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(scanResult.getPan());
         builder.show();
     }
 
-    private void handleCardScanCancelled() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.scan_canceled);
-        builder.show();
-    }
-
-    private void handleEnterCardManually() {
+    @Override
+    public void enterManually(@Nullable String scanId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.enter_manually);
         builder.show();
     }
 
-    private void handleCameraError() {
+    @Override
+    public void userCanceled(@Nullable String scanId) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.scan_canceled);
+        builder.show();
+    }
+
+    @Override
+    public void cameraError(@Nullable String scanId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.camera_error);
         builder.show();
     }
 
-    private void handleAnalyzerFailure() {
+    @Override
+    public void analyzerFailure(@Nullable String scanId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.analyzer_error);
         builder.show();
     }
 
-    private void handleCardScanCancelledUnknown() {
+    @Override
+    public void canceledUnknown(@Nullable String scanId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.unknown_reason);
         builder.show();
