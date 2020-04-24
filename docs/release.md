@@ -46,7 +46,7 @@ The release version of this library is determined by the value of the `version` 
 
 ## Installing to local maven
 
-* execute `./gradlew cardscan-demo:install`
+* execute `./gradlew demo:install`
 
 ## Installing to BinTray
 
@@ -60,9 +60,9 @@ The release version of this library is determined by the value of the `version` 
 
 1. build and upload the library
     ```bash
-    ./gradlew cardscan-demo:build
-    ./gradlew cardscan-demo:install
-    ./gradlew cardscan-demo:bintrayUpload
+    ./gradlew demo:build
+    ./gradlew demo:install
+    ./gradlew demo:bintrayUpload
     ```
 
 1. Make sure you update docs in this readme and the apidocs repo.

@@ -45,7 +45,7 @@ To create an APK release of the app, run the following command:
 ```bash
 ./gradlew demo:assembleRelease
 ```
-This will place an APK file in `cardscan-demo/build/outputs/apk`
+This will place an APK file in `demo/build/outputs/apk`
 
 ## Contributing
 
