@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.0004](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0004) (2020-05-06)
+
+[Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0003...2.0.0004)
+
+**Merged pull requests:**
+
+- Update version [\#33](https://github.com/getbouncer/cardscan-demo-android/pull/33) ([awushensky](https://github.com/awushensky))
+
 ## [2.0.0003](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0003) (2020-04-29)
 
 [Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/a0e3c8e303b7f72e2b08701e01781d9558b07e2c...2.0.0003)
