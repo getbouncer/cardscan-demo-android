@@ -1,19 +1,19 @@
-# CardScan Demo
+# Overview
 
 This repository serves as a demonstration for the CardScan library. [CardScan](https://cardscan.io/) is a relatively small library (1.9 MB) that provides fast and accurate payment card scanning.
 
 CardScan is the foundation for CardVerify enterprise libraries, which validate the authenticity of payment cards as they are scanned.
 
-![CardScan](docs/images/cardscan_demo.gif)
+![demo](docs/images/demo.gif)
 
 ## Contents
 
 * [Requirements](#requirements)
 * [Demo](#demo)
 * [Installation](#installation)
-* [Using CardScan](#using-cardscan)
-* [Customizing](#customizing-cardscan)
-* [Developing](#developing-cardscan)
+* [Using](#using)
+* [Customizing](#customizing)
+* [Developing](#developing)
 * [Authors](#authors)
 * [License](#license)
 
@@ -23,11 +23,11 @@ CardScan is the foundation for CardVerify enterprise libraries, which validate t
 * AndroidX compatibility
 * Kotlin coroutine compatibility
 
-Note: Your app does not have to be written in kotlin to integrate cardscan, but must be able to depend on kotlin functionality.
+Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin functionality.
 
 ## Demo
 
-This repository contains a demonstration app for the CardScan libraries. To build and install this library follow the following steps:
+This repository contains a demonstration app for the CardScan product. To build and install this library follow the following steps:
 
 1. Clone the repository from github
     ```bash
@@ -52,18 +52,17 @@ The CardScan libraries are published in the [jcenter](https://jcenter.bintray.co
 
 ```gradle
 dependencies {
-    implementation 'com.getbouncer:cardscan:2.0.0003'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.3'
+    implementation 'com.getbouncer:cardscan:2.0.0005'
 }
 ```
 
-## Using CardScan
+## Using
 
 Most apps that integrate CardScan should do so with the [CardScan UI library](https://github.com/getbouncer/cardscan-ui-android). See the README file in that repository for details on integration.
 
-To build a custom user interface on top of the CardScan framework, use the [CardScan base library](https://github.com/getbouncer/cardscan-base-android). See the README file in that repository for details on integration.
+To build a custom user interface on top of the scan framework, use the [scan-ui-card library](https://github.com/getbouncer/scan-ui-card-android). See the README file in that repository for details on integration.
 
-## Customizing CardScan
+## Customizing
 
 CardScan is built to be customized to fit your UI.
 
@@ -73,9 +72,9 @@ To modify text, colors, or padding of the default UI, see the [customization](ht
 
 ### Extensive modifications
 
-To modify arrangement or UI functionality, CardScan can be used as a library for your custom implementation. See examples in the [cardscan-base-android](https://github.com/getbouncer/cardscan-base-android) repository.
+To modify arrangement or UI functionality, CardScan can be used as a library for your custom implementation. See examples in the [scan-ui-card-android](https://github.com/getbouncer/scan-ui-card-android) repository.
 
-## Developing CardScan
+## Developing
 
 See the [development docs](docs/develop.md) for details on developing for CardScan.
 
@@ -85,12 +84,12 @@ Adam Wushensky, Sam King, and Zain ul Abi Din
 
 ## License
 
-CardScan is available under paid and free licenses. See the [LICENSE](LICENSE) file for the full license text.
+This library is available under paid and free licenses. See the [LICENSE](LICENSE) file for the full license text.
 
 ### Quick summary
-In short, CardScan will remain free forever for non-commercial applications, but use by commercial applications is limited to 90 days, after which time a licensing agreement is required. We're also adding some legal liability protections.
+In short, this library will remain free forever for non-commercial applications, but use by commercial applications is limited to 90 days, after which time a licensing agreement is required. We're also adding some legal liability protections.
 
-After this period commercial applications need to convert to a licensing agreement to continue to use CardScan.
+After this period commercial applications need to convert to a licensing agreement to continue to use this library.
 * Details of licensing (pricing, etc) are available at [https://cardscan.io/pricing](https://cardscan.io/pricing), or you can contact us at [license@getbouncer.com](mailto:license@getbouncer.com).
 
 ### More detailed summary

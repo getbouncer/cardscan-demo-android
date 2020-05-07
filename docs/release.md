@@ -1,6 +1,6 @@
 # Release
 
-CardScan release guide
+Release guide
 
 ## Contents
 
