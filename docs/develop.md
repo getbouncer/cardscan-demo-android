@@ -1,6 +1,6 @@
 # Development
 
-CardScan development guide
+Development guide
 
 ## Contents
 
@@ -13,21 +13,40 @@ CardScan development guide
 
 ## Dependencies
 
-CardScan requires `androidx` libraries for its user interface, and kotlin coroutine libraries for handling concurrency. Note that your app does not need to be written in kotlin to work with CardScan; The demo app is written in Java.
+This demo app requires `androidx` libraries for its user interface, and kotlin coroutine libraries for handling concurrency. Note that your app does not need to be written in kotlin to work with this library; The demo app is written in Java.
 
 ## Code Organization
 
-CardScan consists of two modules and a demo app. The base module provides the framework and machine learning models required to scan cards. The UI module provides a convenient interface for scanning cards.
+This demo app consists of the following modules and a demo app.
 
-![cardscan dependencies](images/cardscan_dependencies.png)
+![dependencies](images/dependencies.png)
 
-### base
+This library consists of these modules and a demo app:
+* [scan-framework](#scan-framework)
+* [scan-camera](#scan-camera)
+* [scan-payment](#scan-payment)
+* [scan-ui-card](#scan-ui-card)
+* [cardscan-ui](#cardscan-ui)
 
-[CardScan Base](https://github.com/getbouncer/cardscan-base-android) contains the framework and machine learning models used to scan cards. See the [architecture document](https://github.com/getbouncer/cardscan-base-android/blob/master/docs/architecture.md) for details on how CardScan processes images from the camera.
+### scan-framework
 
-#### ui
+[scan-framework](https://github.com/getbouncer/scan-framework-android) contains the framework used to scan images. See the [architecture document](https://github.com/getbouncer/scan-framework-android/tree/master/docs/architecture.md) for details on how it processes images from the camera.
 
-[CardScan UI](https://github.com/getbouncer/cardscan-ui-android) contains the user interface and camera code for scanning payment cards. The CardScan activity configures the framework from Base to accept images from the camera and handles converting the results to a consumable format. 
+### scan-camera
+
+[scan-camera](https://github.com/getbouncer/scan-camera-android) contains the camera interfaces for setting up the camera on the device and receiving images from it. It also handles converting the images from the camera to a processable format.
+
+### scan-payment
+
+[scan-payment](https://github.com/getbouncer/scan-payment-android) contains the code for validating and managing payment cards.
+
+### scan-ui-card
+
+[scan-ui-card](https://github.com/getbouncer/scan-payment-android) contains some common functionality shared between user interfaces for scanning cards. This provides the card viewfinder, debug overlay, and base scan activity.
+
+### cardscan-ui
+
+[CardScan UI](https://github.com/getbouncer/cardscan-ui-android) provides a user interface for scanning payment cards. 
 
 ## Building
 

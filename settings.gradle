@@ -1,6 +1,7 @@
-include ':demo', ':cardscan', ':cardscan-ui', ':cardscan-base', ':cardscan-camera'
+include ':demo', ':cardscan-ui', ':scan-ui-card', ':scan-payment', ':scan-camera', ':scan-framework'
 rootProject.name='cardscan-demo-android'
-project(':cardscan').projectDir = new File('cardscan-android/cardscan')
-project(':cardscan-ui').projectDir = new File('cardscan-android/cardscan-ui-android/cardscan-ui')
-project(':cardscan-base').projectDir = new File('cardscan-android/cardscan-ui-android/cardscan-base-android/cardscan-base')
-project(':cardscan-camera').projectDir = new File('cardscan-android/cardscan-ui-android/cardscan-camera-android/cardscan-camera')
+project(':cardscan-ui').projectDir = new File('cardscan-ui-android/cardscan-ui')
+project(':scan-ui-card').projectDir = new File('cardscan-ui-android/scan-ui-card-android/scan-ui-card')
+project(':scan-payment').projectDir = new File('cardscan-ui-android/scan-payment-android/scan-payment')
+project(':scan-camera').projectDir = new File('cardscan-ui-android/scan-ui-card-android/scan-camera-android/scan-camera')
+project(':scan-framework').projectDir = new File('cardscan-ui-android/scan-ui-card-android/scan-camera-android/scan-framework-android/scan-framework')
