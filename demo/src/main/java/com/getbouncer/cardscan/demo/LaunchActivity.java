@@ -9,8 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.getbouncer.cardscan.ui.CardScanActivity;
-import com.getbouncer.cardscan.ui.CardScanActivityResultHandler;
 import com.getbouncer.cardscan.ui.CardScanActivityResult;
+import com.getbouncer.cardscan.ui.CardScanActivityResultHandler;
 
 import org.jetbrains.annotations.NotNull;
 
