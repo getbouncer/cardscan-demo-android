@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.getbouncer.cardscan.ui.CardScanActivity;
 import com.getbouncer.cardscan.ui.CardScanActivityResultHandler;
-import com.getbouncer.cardscan.ui.ScanResult;
+import com.getbouncer.cardscan.ui.CardScanActivityResult;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -66,7 +66,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
     }
 
     @Override
-    public void cardScanned(@Nullable String scanId, @NotNull ScanResult scanResult) {
+    public void cardScanned(@Nullable String scanId, @NotNull CardScanActivityResult scanResult) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(scanResult.getPan());
         builder.show();
