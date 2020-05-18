@@ -1,6 +1,6 @@
 package com.getbouncer.cardscan.demo
 
-import org.junit.Assert.assertEquals
+import kotlin.test.assertEquals
 import org.junit.Test
 
 /**
