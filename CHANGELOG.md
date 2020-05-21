@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0008](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0008) (2020-05-21)
+
+[Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0007...2.0.0008)
+
+**Merged pull requests:**
+
+- Bump kotlinx-coroutines-core from 1.3.6 to 1.3.7 [\#43](https://github.com/getbouncer/cardscan-demo-android/pull/43) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump com.jfrog.bintray from 1.7.3 to 1.8.5 [\#42](https://github.com/getbouncer/cardscan-demo-android/pull/42) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Bump com.github.dcendents.android-maven from 2.0 to 2.1 [\#41](https://github.com/getbouncer/cardscan-demo-android/pull/41) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Make dependencies explicit [\#39](https://github.com/getbouncer/cardscan-demo-android/pull/39) ([awushensky](https://github.com/awushensky))
+- Display card pan always [\#38](https://github.com/getbouncer/cardscan-demo-android/pull/38) ([awushensky](https://github.com/awushensky))
+
 ## [2.0.0007](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0007) (2020-05-12)
 
 [Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0006...2.0.0007)
