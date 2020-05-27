@@ -35,7 +35,6 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
                         /* displayCardPan */ true,
-                        /* requiredCardNumber */ null,
                         /* displayCardScanLogo */ true,
                         /* enableDebug */ false
                 )
@@ -47,7 +46,6 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ false,
                         /* displayCardPan */ true,
-                        /* requiredCardNumber */ null,
                         /* displayCardScanLogo */ false,
                         /* enableDebug */ true
                 )
