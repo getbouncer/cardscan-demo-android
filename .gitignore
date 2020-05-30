@@ -17,6 +17,7 @@
 /.idea/codeStyles/codeStyleConfig.xml
 /.idea/.name
 /.idea/checkstyle-idea.xml
+/.idea/jarRepositories.xml
 .DS_Store
 /build
 /captures
