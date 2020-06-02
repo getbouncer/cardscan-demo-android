@@ -14,8 +14,6 @@ import com.getbouncer.cardscan.ui.CardScanActivityResultHandler;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 public class LaunchActivity extends AppCompatActivity implements CardScanActivityResultHandler {
 
     private static final String API_KEY = "qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn";
