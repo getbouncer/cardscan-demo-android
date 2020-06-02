@@ -14,6 +14,8 @@ import com.getbouncer.cardscan.ui.CardScanActivityResultHandler;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class LaunchActivity extends AppCompatActivity implements CardScanActivityResultHandler {
 
     private static final String API_KEY = "qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn";
@@ -34,24 +36,28 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */ LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
+                        /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
+                        /* displayCardholderName */ false,
                         /* displayCardScanLogo */ true,
                         /* enableDebug */ false
                 )
         );
 
-        findViewById(R.id.scanCardDebugButton).setOnClickListener(v ->
+        findViewById(R.id.scanCardDebugButton).setOnClickListener( v ->
                 CardScanActivity.start(
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ false,
+                        /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
+                        /* displayCardholderName */ true,
                         /* displayCardScanLogo */ false,
                         /* enableDebug */ true
                 )
         );
 
-        CardScanActivity.warmUp(this, API_KEY);
+        CardScanActivity.warmUp(this, API_KEY, true);
     }
 
     @Override
@@ -66,7 +72,11 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
     @Override
     public void cardScanned(@Nullable String scanId, @NotNull CardScanActivityResult scanResult) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(scanResult.getPan());
+        if (scanResult.getCardholderName() == null) {
+            builder.setMessage(scanResult.getPan());
+        } else {
+            builder.setMessage("PAN: " + scanResult.getPan() + "\nName: " + scanResult.getCardholderName());
+        }
         builder.show();
     }
 
