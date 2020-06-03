@@ -42,7 +42,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                 )
         );
 
-        findViewById(R.id.scanCardDebugButton).setOnClickListener( v ->
+        findViewById(R.id.scanCardDebugButton).setOnClickListener(v ->
                 CardScanActivity.start(
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
