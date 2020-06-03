@@ -34,7 +34,9 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */ LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
+                        /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
+                        /* displayCardholderName */ false,
                         /* displayCardScanLogo */ true,
                         /* enableDebug */ false
                 )
@@ -45,13 +47,15 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ false,
+                        /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
+                        /* displayCardholderName */ true,
                         /* displayCardScanLogo */ false,
                         /* enableDebug */ true
                 )
         );
 
-        CardScanActivity.warmUp(this, API_KEY);
+        CardScanActivity.warmUp(this, API_KEY, true);
     }
 
     @Override
@@ -66,7 +70,13 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
     @Override
     public void cardScanned(@Nullable String scanId, @NotNull CardScanActivityResult scanResult) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(scanResult.getPan());
+        if (scanResult.getCardholderName() == null) {
+            builder.setMessage(scanResult.getPan());
+        } else {
+            builder.setMessage(
+                    "PAN: " + scanResult.getPan() + "\nName: " + scanResult.getCardholderName()
+            );
+        }
         builder.show();
     }
 
