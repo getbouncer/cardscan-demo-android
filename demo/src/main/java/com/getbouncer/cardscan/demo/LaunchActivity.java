@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class LaunchActivity extends AppCompatActivity implements CardScanActivityResultHandler {
 
-    private static final String API_KEY = "qOJ_fF-WLDMbG05iBq5wvwiTNTmM2qIn";
+    private static final String API_KEY = "uXDc2sbugrkmvj1Bm3xOTXBw7NW4llgn";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,7 +34,6 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */ LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
-                        /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ false,
                         /* displayCardScanLogo */ true,
@@ -47,7 +46,6 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ false,
-                        /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ true,
                         /* displayCardScanLogo */ false,
