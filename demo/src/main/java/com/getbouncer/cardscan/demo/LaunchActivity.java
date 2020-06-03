@@ -73,7 +73,9 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
         if (scanResult.getCardholderName() == null) {
             builder.setMessage(scanResult.getPan());
         } else {
-            builder.setMessage("PAN: " + scanResult.getPan() + "\nName: " + scanResult.getCardholderName());
+            builder.setMessage(
+                    "PAN: " + scanResult.getPan() + "\nName: " + scanResult.getCardholderName()
+            );
         }
         builder.show();
     }
