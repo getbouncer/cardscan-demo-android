@@ -29,6 +29,24 @@
             android:layout_marginEnd="16dp"
             android:text="@string/scan_card_debug" />
 
+        <Button
+            android:id="@+id/scanCardWithNameExtractionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/scan_card_w_name" />
+
+        <Button
+            android:id="@+id/scanCardWithNameExtractionDebugButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/scan_card_w_name_debug" />
+
     </LinearLayout>
 
 </ScrollView>
