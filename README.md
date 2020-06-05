@@ -68,7 +68,13 @@ Make sure that you get an [API key](https://api.getbouncer.com/console) and conf
 
 ## Name extraction support (BETA)
 
-To test name extraction, please first provision an API key, then reach out to support@bouncer.com with details about your use case and estimated volumes. 
+To test name extraction, please first provision an API key, then reach out to support@bouncer.com with details about your use case and estimated volumes.
+
+In the ```CardScanActivity.warmUp()``` function, be sure to set the `enableNameExtraction` variable to `true`:
+
+```kotlin
+CardScanActivity.warmUp(this, API_KEY, true);
+```
 
 ## Customizing
 
