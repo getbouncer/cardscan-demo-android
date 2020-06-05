@@ -34,6 +34,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */ LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
+                        /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ false,
                         /* displayCardScanLogo */ true,
@@ -46,6 +47,33 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ false,
+                        /* enableNameExtraction */ false,
+                        /* displayCardPan */ true,
+                        /* displayCardholderName */ true,
+                        /* displayCardScanLogo */ false,
+                        /* enableDebug */ true
+                )
+        );
+
+        findViewById(R.id.scanCardWithNameExtractionButton).setOnClickListener(v ->
+                CardScanActivity.start(
+                        /* activity */ LaunchActivity.this,
+                        /* apiKey */ API_KEY,
+                        /* enableEnterCardManually */ true,
+                        /* enableNameExtraction */ true,
+                        /* displayCardPan */ true,
+                        /* displayCardholderName */ false,
+                        /* displayCardScanLogo */ true,
+                        /* enableDebug */ false
+                )
+        );
+
+        findViewById(R.id.scanCardWithNameExtractionDebugButton).setOnClickListener(v ->
+                CardScanActivity.start(
+                        /* activity */LaunchActivity.this,
+                        /* apiKey */ API_KEY,
+                        /* enableEnterCardManually */ false,
+                        /* enableNameExtraction */ true,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ true,
                         /* displayCardScanLogo */ false,

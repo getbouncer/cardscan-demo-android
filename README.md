@@ -62,6 +62,20 @@ Most apps that integrate CardScan should do so with the [CardScan UI library](ht
 
 To build a custom user interface on top of the scan framework, use the [scan-ui-card library](https://github.com/getbouncer/scan-ui-card-android). See the README file in that repository for details on integration.
 
+## Provisioning an API key
+
+Make sure that you get an [API key](https://api.getbouncer.com/console) and configure the library when your application launches. 
+
+## Name extraction support (BETA)
+
+To test name extraction, please first provision an API key, then reach out to support@bouncer.com with details about your use case and estimated volumes.
+
+In the ```CardScanActivity.warmUp()``` function, be sure to set the `enableNameExtraction` variable to `true`:
+
+```kotlin
+CardScanActivity.warmUp(this, API_KEY, true);
+```
+
 ## Customizing
 
 CardScan is built to be customized to fit your UI.
