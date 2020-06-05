@@ -1,8 +1,8 @@
 package com.getbouncer.cardscan.demo
 
 import androidx.test.platform.app.InstrumentationRegistry
-import kotlin.test.assertEquals
 import org.junit.Test
+import kotlin.test.assertEquals
 
 /**
  * Instrumented test, which will execute on an Android device.
