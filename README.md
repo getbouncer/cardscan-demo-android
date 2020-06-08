@@ -52,7 +52,7 @@ The CardScan libraries are published in the [jcenter](https://jcenter.bintray.co
 
 ```gradle
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0010'
+    implementation 'com.getbouncer:cardscan-ui:2.0.0011'
 }
 ```
 
