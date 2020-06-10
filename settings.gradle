@@ -2,6 +2,6 @@ include ':demo', ':cardscan-ui', ':scan-ui', ':scan-payment', ':scan-camera', ':
 rootProject.name='cardscan-demo-android'
 project(':cardscan-ui').projectDir = new File('cardscan-ui-android/cardscan-ui')
 project(':scan-ui').projectDir = new File('cardscan-ui-android/scan-ui-android/scan-ui')
-project(':scan-payment').projectDir = new File('cardscan-ui-android/scan-payment-android/scan-payment')
 project(':scan-camera').projectDir = new File('cardscan-ui-android/scan-ui-android/scan-camera-android/scan-camera')
-project(':scan-framework').projectDir = new File('cardscan-ui-android/scan-ui-android/scan-camera-android/scan-framework-android/scan-framework')
+project(':scan-framework').projectDir = new File('cardscan-ui-android/scan-ui-android/scan-framework-android/scan-framework')
+project(':scan-payment').projectDir = new File('cardscan-ui-android/scan-payment-android/scan-payment')
