@@ -81,7 +81,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                 )
         );
 
-        CardScanActivity.warmUp(this, API_KEY, true);
+        CardScanActivity.initializeNameExtraction(this, API_KEY);
     }
 
     @Override
