@@ -52,7 +52,7 @@ The CardScan libraries are published in the [jcenter](https://jcenter.bintray.co
 
 ```gradle
 dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0011'
+    implementation 'com.getbouncer:cardscan-ui:2.0.0012'
 }
 ```
 
@@ -70,10 +70,10 @@ Make sure that you get an [API key](https://api.getbouncer.com/console) and conf
 
 To test name extraction, please first provision an API key, then reach out to support@bouncer.com with details about your use case and estimated volumes.
 
-In the ```CardScanActivity.warmUp()``` function, be sure to set the `enableNameExtraction` variable to `true`:
+Before launching the CardScan flow, make sure to call the ```CardScanActivity.initializeNameExtraction()``` function with your API key:
 
 ```kotlin
-CardScanActivity.warmUp(this, API_KEY, true);
+CardScanActivity.initializeNameExtraction(this, API_KEY)
 ```
 
 ## Customizing
