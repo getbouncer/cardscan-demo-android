@@ -1,5 +1,26 @@
 # Changelog
 
+## [2.0.0012](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0012) (2020-06-15)
+
+[Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0011...2.0.0012)
+
+**Merged pull requests:**
+
+- Rename warm up [\#55](https://github.com/getbouncer/cardscan-demo-android/pull/55) ([awushensky](https://github.com/awushensky))
+
+## [2.0.0011](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0011) (2020-06-08)
+
+[Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0009...2.0.0011)
+
+**Merged pull requests:**
+
+- Support separate name extraction parameters [\#54](https://github.com/getbouncer/cardscan-demo-android/pull/54) ([awushensky](https://github.com/awushensky))
+- Add docs and buttons for name extraction [\#53](https://github.com/getbouncer/cardscan-demo-android/pull/53) ([xsl](https://github.com/xsl))
+- Reduce name extraction settings [\#52](https://github.com/getbouncer/cardscan-demo-android/pull/52) ([awushensky](https://github.com/awushensky))
+- Bump ktlint from 0.36.0 to 0.37.0 [\#51](https://github.com/getbouncer/cardscan-demo-android/pull/51) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Update for name extraction [\#50](https://github.com/getbouncer/cardscan-demo-android/pull/50) ([xsl](https://github.com/xsl))
+- Bump gradle from 3.6.3 to 4.0.0 [\#47](https://github.com/getbouncer/cardscan-demo-android/pull/47) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+
 ## [2.0.0009](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0009) (2020-05-29)
 
 [Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0008...2.0.0009)
