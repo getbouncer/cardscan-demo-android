@@ -9,6 +9,8 @@
     <string name="camera_error">Camera error</string>
     <string name="analyzer_error">Analyzer error</string>
     <string name="unknown_reason">Unknown reason</string>
-    <string name="scan_card_w_name">Scan Card w/ Name</string>
-    <string name="scan_card_w_name_debug">Scan Card w/ Name (Debug)</string>
+    <string name="scan_card_w_expiry">Scan Card w/ Expiry</string>
+    <string name="scan_card_w_expiry_debug">Scan Card w/ Expiry (Debug)</string>
+    <string name="scan_card_w_name_and_expiry">Scan Card w/ Name and Expiry</string>
+    <string name="scan_card_w_name_and_expiry_debug">Scan Card w/ Name and Expiry (Debug)</string>
 </resources>
