@@ -85,7 +85,6 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                 )
         );
 
-
         findViewById(R.id.scanCardWithNameExtractionButton).setOnClickListener(v ->
                 CardScanActivity.start(
                         /* activity */ LaunchActivity.this,
