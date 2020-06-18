@@ -79,8 +79,8 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* enableExpiryExtraction */ true,
                         /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
-                        /* displayCardholderName */ true,
-                        /* displayCardScanLogo */ false,
+                        /* displayCardholderName */ false,
+                        /* displayCardScanLogo */ true,
                         /* enableDebug */ true
                 )
         );
@@ -93,7 +93,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* enableExpiryExtraction */ true,
                         /* enableNameExtraction */ true,
                         /* displayCardPan */ true,
-                        /* displayCardholderName */ false,
+                        /* displayCardholderName */ true,
                         /* displayCardScanLogo */ true,
                         /* enableDebug */ false
                 )
@@ -108,7 +108,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* enableNameExtraction */ true,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ true,
-                        /* displayCardScanLogo */ false,
+                        /* displayCardScanLogo */ true,
                         /* enableDebug */ true
                 )
         );
