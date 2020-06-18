@@ -35,6 +35,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
                         /* enableNameExtraction */ false,
+                        /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ false,
                         /* displayCardScanLogo */ true,
@@ -47,6 +48,35 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ false,
+                        /* enableExpiryExtraction */ false,
+                        /* enableNameExtraction */ false,
+                        /* displayCardPan */ true,
+                        /* displayCardholderName */ true,
+                        /* displayCardScanLogo */ false,
+                        /* enableDebug */ true
+                )
+        );
+
+        findViewById(R.id.scanCardWithExpiryButton).setOnClickListener(v ->
+                CardScanActivity.start(
+                        /* activity */ LaunchActivity.this,
+                        /* apiKey */ API_KEY,
+                        /* enableEnterCardManually */ true,
+                        /* enableExpiryExtraction */ true,
+                        /* enableNameExtraction */ false,
+                        /* displayCardPan */ true,
+                        /* displayCardholderName */ false,
+                        /* displayCardScanLogo */ true,
+                        /* enableDebug */ false
+                )
+        );
+
+        findViewById(R.id.scanCardWithExpiryDebugButton).setOnClickListener(v ->
+                CardScanActivity.start(
+                        /* activity */LaunchActivity.this,
+                        /* apiKey */ API_KEY,
+                        /* enableEnterCardManually */ false,
+                        /* enableExpiryExtraction */ true,
                         /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ true,
@@ -60,6 +90,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */ LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
+                        /* enableExpiryExtraction */ true,
                         /* enableNameExtraction */ true,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ false,
@@ -73,6 +104,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ false,
+                        /* enableExpiryExtraction */ true,
                         /* enableNameExtraction */ true,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ true,
@@ -96,13 +128,24 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
     @Override
     public void cardScanned(@Nullable String scanId, @NotNull CardScanActivityResult scanResult) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        if (scanResult.getCardholderName() == null) {
-            builder.setMessage(scanResult.getPan());
-        } else {
-            builder.setMessage(
-                    "PAN: " + scanResult.getPan() + "\nName: " + scanResult.getCardholderName()
+        StringBuilder message = new StringBuilder();
+        message.append(scanResult.getPan());
+        if (scanResult.getCardholderName() != null) {
+            message.append("\nName: ");
+            message.append(scanResult.getCardholderName());
+        }
+        if (scanResult.getExpiryMonth() != null && scanResult.getExpiryYear() != null) {
+            message.append(
+                    String.format("\nExpiry: %s/%s",
+                    scanResult.getExpiryMonth(),
+                    scanResult.getExpiryYear())
             );
         }
+        if (scanResult.getErrorString() != null) {
+            message.append("\nError: ");
+            message.append(scanResult.getErrorString());
+        }
+        builder.setMessage(message);
         builder.show();
     }
 
