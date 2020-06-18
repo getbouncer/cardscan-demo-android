@@ -66,9 +66,9 @@ To build a custom user interface on top of the scan framework, use the [scan-ui-
 
 Make sure that you get an [API key](https://api.getbouncer.com/console) and configure the library when your application launches. 
 
-## Name extraction support (BETA)
+## Name and expiration extraction support (BETA)
 
-To test name extraction, please first provision an API key, then reach out to support@bouncer.com with details about your use case and estimated volumes.
+To test name / expiration extraction, please first provision an API key, then reach out to support@bouncer.com with details about your use case and estimated volumes.
 
 Before launching the CardScan flow, make sure to call the ```CardScanActivity.initializeNameExtraction()``` function with your API key:
 
