@@ -70,10 +70,10 @@ Make sure that you get an [API key](https://api.getbouncer.com/console) and conf
 
 To test name / expiration extraction, please first provision an API key, then reach out to support@bouncer.com with details about your use case and estimated volumes.
 
-Before launching the CardScan flow, make sure to call the ```CardScanActivity.initializeNameExtraction()``` function with your API key:
+Before launching the CardScan flow, make sure to call the ```CardScanActivity.warmup()``` function with your API key and set ```initializeNameAndExpiryExtraction``` to ```true```
 
 ```kotlin
-CardScanActivity.initializeNameExtraction(this, API_KEY)
+CardScanActivity.warmup(this, API_KEY, true)
 ```
 
 ## Customizing
