@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0013](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0013) (2020-07-08)
+
+[Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0012...2.0.0013)
+
+**Merged pull requests:**
+
+- Bump ktlint from 0.37.0 to 0.37.2 [\#59](https://github.com/getbouncer/cardscan-demo-android/pull/59) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
+- Use new warmup initializer [\#58](https://github.com/getbouncer/cardscan-demo-android/pull/58) ([xsl](https://github.com/xsl))
+- Update UI [\#57](https://github.com/getbouncer/cardscan-demo-android/pull/57) ([awushensky](https://github.com/awushensky))
+- Update for expiry extraction + new text detector [\#56](https://github.com/getbouncer/cardscan-demo-android/pull/56) ([xsl](https://github.com/xsl))
+
 ## [2.0.0012](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0012) (2020-06-15)
 
 [Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0011...2.0.0012)
