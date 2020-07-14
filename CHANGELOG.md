@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.0014](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0014) (2020-07-14)
+
+[Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0013...2.0.0014)
+
 ## [2.0.0013](https://github.com/getbouncer/cardscan-demo-android/tree/2.0.0013) (2020-07-08)
 
 [Full Changelog](https://github.com/getbouncer/cardscan-demo-android/compare/2.0.0012...2.0.0013)
