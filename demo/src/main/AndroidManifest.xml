@@ -28,6 +28,10 @@
 
         </activity>
 
+        <activity android:name=".SingleActivityDemo"
+            android:screenOrientation="nosensor"
+            android:theme="@style/AppTheme" />
+
     </application>
 
 </manifest>

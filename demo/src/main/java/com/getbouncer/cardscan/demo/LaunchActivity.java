@@ -113,6 +113,10 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                 )
         );
 
+        findViewById(R.id.singleActivityDemo).setOnClickListener(v ->
+                startActivity(new Intent(this, SingleActivityDemo.class))
+        );
+
         CardScanActivity.warmUp(this, API_KEY, true);
     }
 
