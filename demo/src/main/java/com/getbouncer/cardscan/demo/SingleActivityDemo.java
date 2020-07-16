@@ -47,12 +47,12 @@ import com.getbouncer.scan.payment.ml.SSDOcr;
 import com.getbouncer.scan.ui.ViewFinderBackground;
 import com.getbouncer.scan.ui.util.ViewExtensionsKt;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
+
+import org.jetbrains.annotations.NotNull;
 
 import kotlin.Unit;
 import kotlin.coroutines.CoroutineContext;
@@ -77,7 +77,7 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
     private Button scanCardButton;
     private View scanView;
 
-    private TextureView cameraPreviewHolder;
+    private TextureView cameraPreview;
 
     private Rect viewFinderRect;
     private FrameLayout viewFinderWindow;
@@ -121,14 +121,15 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
             scanView.setVisibility(View.VISIBLE);
             isScanning = true;
 
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
+                    PackageManager.PERMISSION_GRANTED) {
                 requestCameraPermission();
             } else {
                 prepareCamera();
             }
         });
 
-        cameraPreviewHolder = findViewById(R.id.cameraPreviewHolder);
+        cameraPreview = findViewById(R.id.cameraPreviewHolder);
         viewFinderWindow = findViewById(R.id.viewFinderWindow);
         viewFinderBackground = findViewById(R.id.viewFinderBackground);
         viewFinderBorder = findViewById(R.id.viewFinderBorder);
@@ -190,7 +191,11 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
      * Request permission to use the camera.
      */
     private void requestCameraPermission() {
-        ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA }, PERMISSION_REQUEST_CODE);
+        ActivityCompat.requestPermissions(
+            this,
+            new String[] { Manifest.permission.CAMERA },
+            PERMISSION_REQUEST_CODE
+        );
     }
 
     /**
@@ -198,7 +203,11 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
      * not, show a dialog.
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(
+        int requestCode,
+        @NonNull String[] permissions,
+        @NonNull int[] grantResults
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
         if (requestCode == PERMISSION_REQUEST_CODE && grantResults.length > 0) {
@@ -216,22 +225,28 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
     private void showPermissionDeniedDialog() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.bouncer_camera_permission_denied_message)
-            .setPositiveButton(R.string.bouncer_camera_permission_denied_ok, (dialog, which) -> requestCameraPermission())
-            .setNegativeButton(R.string.bouncer_camera_permission_denied_cancel, (DialogInterface.OnClickListener) (dialog, which) -> prepareCamera())
+            .setPositiveButton(
+                R.string.bouncer_camera_permission_denied_ok,
+                (dialog, which) -> requestCameraPermission()
+            )
+            .setNegativeButton(
+                R.string.bouncer_camera_permission_denied_cancel,
+                (DialogInterface.OnClickListener) (dialog, which) -> prepareCamera()
+            )
             .show();
     }
 
     private void prepareCamera() {
-        cameraPreviewHolder.post(() -> {
+        cameraPreview.post(() -> {
             viewFinderRect = new Rect(
-                    viewFinderWindow.getLeft(),
-                    viewFinderWindow.getTop(),
-                    viewFinderWindow.getRight(),
-                    viewFinderWindow.getBottom()
+                viewFinderWindow.getLeft(),
+                viewFinderWindow.getTop(),
+                viewFinderWindow.getRight(),
+                viewFinderWindow.getBottom()
             );
             viewFinderBackground.setViewFinderRect(viewFinderRect);
-            cameraAdapter = new Camera2Adapter(this, cameraPreviewHolder, MINIMUM_RESOLUTION, this);
-            cardScanFlow = new CardScanFlow(true, true, aggregateResultListener, this);
+
+            cameraAdapter = new Camera2Adapter(this, cameraPreview, MINIMUM_RESOLUTION, this);
             cameraAdapter.bindToLifecycle(this);
             cameraAdapter.withFlashSupport(supported -> {
                 setFlashlightState(cameraAdapter.isTorchOn());
@@ -239,13 +254,14 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
                 return Unit.INSTANCE;
             });
 
+            cardScanFlow = new CardScanFlow(true, true, aggregateResultListener, this);
             cardScanFlow.startFlow(
-                    this,
-                    cameraAdapter.getImageStream(),
-                    new Size(cameraPreviewHolder.getWidth(), cameraPreviewHolder.getHeight()),
-                    viewFinderRect,
-                    this,
-                    this
+                this,
+                cameraAdapter.getImageStream(),
+                new Size(cameraPreview.getWidth(), cameraPreview.getHeight()),
+                viewFinderRect,
+                this,
+                this
             );
         });
     }
@@ -294,9 +310,15 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
         } else {
             flashButtonView.setImageResource(R.drawable.bouncer_flash_off_dark);
         }
-        instructionsTextView.setTextColor(ContextCompat.getColor(this, R.color.bouncerInstructionsColorDark));
-        securityTextView.setTextColor(ContextCompat.getColor(this, R.color.bouncerSecurityColorDark));
-        enterCardManuallyButtonView.setTextColor(ContextCompat.getColor(this, R.color.bouncerEnterCardManuallyColorDark));
+        instructionsTextView.setTextColor(
+            ContextCompat.getColor(this, R.color.bouncerInstructionsColorDark)
+        );
+        securityTextView.setTextColor(
+            ContextCompat.getColor(this, R.color.bouncerSecurityColorDark)
+        );
+        enterCardManuallyButtonView.setTextColor(
+            ContextCompat.getColor(this, R.color.bouncerEnterCardManuallyColorDark)
+        );
         closeButtonView.setImageResource(R.drawable.bouncer_close_button_dark);
         cardScanLogoView.setImageResource(R.drawable.bouncer_logo_dark_background);
     }
@@ -307,9 +329,15 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
         } else {
             flashButtonView.setImageResource(R.drawable.bouncer_flash_off_light);
         }
-        instructionsTextView.setTextColor(ContextCompat.getColor(this, R.color.bouncerInstructionsColorLight));
-        securityTextView.setTextColor(ContextCompat.getColor(this, R.color.bouncerSecurityColorLight));
-        enterCardManuallyButtonView.setTextColor(ContextCompat.getColor(this, R.color.bouncerEnterCardManuallyColorLight));
+        instructionsTextView.setTextColor(
+            ContextCompat.getColor(this, R.color.bouncerInstructionsColorLight)
+        );
+        securityTextView.setTextColor(
+            ContextCompat.getColor(this, R.color.bouncerSecurityColorLight)
+        );
+        enterCardManuallyButtonView.setTextColor(
+            ContextCompat.getColor(this, R.color.bouncerEnterCardManuallyColorLight)
+        );
         closeButtonView.setImageResource(R.drawable.bouncer_close_button_light);
         cardScanLogoView.setImageResource(R.drawable.bouncer_logo_light_background);
     }
@@ -341,15 +369,35 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
      * Cancel a scan
      */
     private void cancelScan(int reasonCode) {
-        new AlertDialog.Builder(this).setMessage(String.format(Locale.getDefault(), "Scan Canceled: %d", reasonCode)).show();
+        new AlertDialog.Builder(this)
+            .setMessage(String.format(Locale.getDefault(), "Scan Canceled: %d", reasonCode))
+            .show();
         closeScanner();
     }
 
     /**
      * Complete a scan
      */
-    private void completeScan(@Nullable Integer expiryMonth, @Nullable Integer expiryYear, @Nullable String cardNumber, @Nullable String issuer, @Nullable String name, @Nullable String error) {
-        new AlertDialog.Builder(this).setMessage(String.format(Locale.getDefault(), "%s\n%s\n%d/%d\n%s\n%s", cardNumber, issuer, expiryMonth, expiryYear, name, error)).show();
+    private void completeScan(
+        @Nullable Integer expiryMonth,
+        @Nullable Integer expiryYear,
+        @Nullable String cardNumber,
+        @Nullable String issuer,
+        @Nullable String name,
+        @Nullable String error
+    ) {
+        new AlertDialog.Builder(this)
+            .setMessage(String.format(
+                Locale.getDefault(),
+                "%s\n%s\n%d/%d\n%s\n%s",
+                cardNumber,
+                issuer,
+                expiryMonth,
+                expiryYear,
+                name,
+                error
+            ))
+            .show();
         closeScanner();
     }
 
@@ -389,14 +437,31 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
         new AlertDialog.Builder(this)
             .setTitle(R.string.bouncer_error_camera_title)
             .setMessage(message)
-            .setPositiveButton(R.string.bouncer_error_camera_acknowledge_button, (dialog, which) -> cameraErrorCancelScan(cause))
+            .setPositiveButton(
+                R.string.bouncer_error_camera_acknowledge_button,
+                (dialog, which) -> cameraErrorCancelScan(cause)
+            )
             .show();
     }
 
-    private AggregateResultListener<SSDOcr.Input, PaymentCardOcrState, OcrResultAggregator.InterimResult, PaymentCardOcrResult> aggregateResultListener = new BlockingAggregateResultListener<SSDOcr.Input, PaymentCardOcrState, OcrResultAggregator.InterimResult, PaymentCardOcrResult>() {
+    private AggregateResultListener<
+        SSDOcr.Input,
+        PaymentCardOcrState,
+        OcrResultAggregator.InterimResult,
+        PaymentCardOcrResult> aggregateResultListener =
+            new BlockingAggregateResultListener<
+                SSDOcr.Input,
+                PaymentCardOcrState,
+                OcrResultAggregator.InterimResult,
+                PaymentCardOcrResult>() {
         @Override
-        public void onInterimResultBlocking(OcrResultAggregator.InterimResult interimResult, PaymentCardOcrState paymentCardOcrState, SSDOcr.Input input) {
-            boolean previousValidResult = hasPreviousValidResult.getAndSet(interimResult.getHasValidPan());
+        public void onInterimResultBlocking(
+            OcrResultAggregator.InterimResult interimResult,
+            PaymentCardOcrState paymentCardOcrState,
+            SSDOcr.Input input
+        ) {
+            boolean previousValidResult =
+                    hasPreviousValidResult.getAndSet(interimResult.getHasValidPan());
             boolean isFirstValidResult = interimResult.getHasValidPan() && !previousValidResult;
 
             String pan = interimResult.getMostLikelyPan();
@@ -429,15 +494,34 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
         }
 
         @Override
-        public void onResultBlocking(PaymentCardOcrResult result, @NotNull Map<String, ? extends List<SavedFrame<SSDOcr.Input, PaymentCardOcrState, OcrResultAggregator.InterimResult>>> frames) {
+        public void onResultBlocking(
+            PaymentCardOcrResult result,
+            @NotNull Map<String, ? extends List<
+                SavedFrame<SSDOcr.Input, PaymentCardOcrState, OcrResultAggregator.InterimResult>
+                >> frames
+        ) {
             // Only show the expiry dates that are not expired
             final ExpiryDetect.Expiry expiry = result.getExpiry();
 
             new Handler(getMainLooper()).post(() -> {
                 if (expiry != null && expiry.isValidExpiry()) {
-                    completeScan(expiry.getMonth(), expiry.getYear(), result.getPan(), PaymentCardUtils.getCardIssuer(result.getPan()).getDisplayName(), result.getName(), result.getErrorString());
+                    completeScan(
+                        expiry.getMonth(),
+                        expiry.getYear(),
+                        result.getPan(),
+                        PaymentCardUtils.getCardIssuer(result.getPan()).getDisplayName(),
+                        result.getName(),
+                        result.getErrorString()
+                    );
                 } else {
-                    completeScan(null, null, result.getPan(), PaymentCardUtils.getCardIssuer(result.getPan()).getDisplayName(), result.getName(), result.getErrorString());
+                    completeScan(
+                        null,
+                        null,
+                        result.getPan(),
+                        PaymentCardUtils.getCardIssuer(result.getPan()).getDisplayName(),
+                        result.getName(),
+                        result.getErrorString()
+                    );
                 }
             });
         }
@@ -458,7 +542,8 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
 
     private void setStateFound(@DrawableRes int animation) {
         if (scanState != State.FOUND) {
-            viewFinderBackground.setBackgroundColor(ViewExtensionsKt.getColorByRes(this, R.color.bouncerFoundBackground));
+            viewFinderBackground.setBackgroundColor(ViewExtensionsKt.getColorByRes(this,
+                    R.color.bouncerFoundBackground));
             viewFinderWindow.setBackgroundResource(R.drawable.bouncer_card_background_found);
             ViewExtensionsKt.setAnimated(this, viewFinderBorder, animation);
             instructionsTextView.setText(R.string.bouncer_card_scan_instructions);
@@ -468,9 +553,11 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
 
     private void setStateNotFound() {
         if (scanState != State.NOT_FOUND) {
-            viewFinderBackground.setBackgroundColor(ViewExtensionsKt.getColorByRes(this, R.color.bouncerNotFoundBackground));
+            viewFinderBackground.setBackgroundColor(ViewExtensionsKt.getColorByRes(this,
+                    R.color.bouncerNotFoundBackground));
             viewFinderWindow.setBackgroundResource(R.drawable.bouncer_card_background_not_found);
-            ViewExtensionsKt.setAnimated(this, viewFinderBorder, R.drawable.bouncer_card_border_not_found);
+            ViewExtensionsKt.setAnimated(this, viewFinderBorder,
+                    R.drawable.bouncer_card_border_not_found);
             cardPanTextView.setVisibility(View.INVISIBLE);
             cardNameTextView.setVisibility(View.INVISIBLE);
             instructionsTextView.setText(R.string.bouncer_card_scan_instructions);
@@ -485,7 +572,13 @@ public class SingleActivityDemo extends AppCompatActivity implements CameraError
             Bitmap bitmap = SSDOcr.Companion.cropImage(frame);
             debugBitmapView.setImageBitmap(bitmap);
 
-            Log.d(Config.getLogTag(), "Delay between capture and result for this frame was ${frame.capturedAt.elapsedSince()}");
+            Log.d(
+                Config.getLogTag(),
+                String.format(
+                    "Delay between capture and result for this frame was %s",
+                    frame.getCapturedAt().elapsedSince()
+                )
+            );
         }
     }
 
