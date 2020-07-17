@@ -1,5 +1,4 @@
 # Overview
-
 This repository serves as a demonstration for the CardScan library. [CardScan](https://cardscan.io/) is a relatively small library (1.9 MB) that provides fast and accurate payment card scanning.
 
 CardScan is the foundation for CardVerify enterprise libraries, which validate the authenticity of payment cards as they are scanned.
@@ -7,18 +6,15 @@ CardScan is the foundation for CardVerify enterprise libraries, which validate t
 ![demo](docs/images/demo.gif)
 
 ## Contents
-
 * [Requirements](#requirements)
 * [Demo](#demo)
-* [Installation](#installation)
-* [Using](#using)
+* [Integration](#integration)
 * [Customizing](#customizing)
 * [Developing](#developing)
 * [Authors](#authors)
 * [License](#license)
 
 ## Requirements
-
 * Android API level 21 or higher
 * AndroidX compatibility
 * Kotlin coroutine compatibility
@@ -26,7 +22,6 @@ CardScan is the foundation for CardVerify enterprise libraries, which validate t
 Note: Your app does not have to be written in kotlin to integrate this library, but must be able to depend on kotlin functionality.
 
 ## Demo
-
 This repository contains a demonstration app for the CardScan product. To build and install this library follow the following steps:
 
 1. Clone the repository from github
@@ -46,29 +41,14 @@ This repository contains a demonstration app for the CardScan product. To build 
     ```
     This will create a release APK in the `cardscan-demo/build/outputs/apk` directory. Copy this file to your device and install it.
 
-## Installation
+## Integration
+See the [integration documentation](https://docs.getbouncer.com/card-scan/android-integration-guide/android-development-guide) in the Bouncer Docs.
 
-The CardScan libraries are published in the [jcenter](https://jcenter.bintray.com/com/getbouncer/) repository, so for most gradle configurations you only need to add the dependencies to your app's `build.gradle` file:
+### Provisioning an API key
+CardScan requires a valid API key to run. To provision an API key, visit the [Bouncer API console](https://api.getbouncer.com/console).
 
-```gradle
-dependencies {
-    implementation 'com.getbouncer:cardscan-ui:2.0.0014'
-}
-```
-
-## Using
-
-Most apps that integrate CardScan should do so with the [CardScan UI library](https://github.com/getbouncer/cardscan-ui-android). See the README file in that repository for details on integration.
-
-To build a custom user interface on top of the scan framework, use the [scan-ui-card library](https://github.com/getbouncer/scan-ui-card-android). See the README file in that repository for details on integration.
-
-## Provisioning an API key
-
-Make sure that you get an [API key](https://api.getbouncer.com/console) and configure the library when your application launches. 
-
-## Name and expiration extraction support (BETA)
-
-To test name / expiration extraction, please first provision an API key, then reach out to support@bouncer.com with details about your use case and estimated volumes.
+### Name and expiration extraction support (BETA)
+To test name and/or expiration extraction, please first provision an API key, then reach out to [support@getbouncer.com](mailto:support@getbouncer.com) with details about your use case and estimated volumes.
 
 Before launching the CardScan flow, make sure to call the ```CardScanActivity.warmup()``` function with your API key and set ```initializeNameAndExpiryExtraction``` to ```true```
 
@@ -77,27 +57,21 @@ CardScanActivity.warmup(this, API_KEY, true)
 ```
 
 ## Customizing
-
 CardScan is built to be customized to fit your UI.
 
 ### Basic modifications
-
-To modify text, colors, or padding of the default UI, see the [customization](https://github.com/getbouncer/cardscan-ui-android/blob/master/docs/customize.md) documentation.
+To modify text, colors, or padding of the default UI, see the [customization](https://docs.getbouncer.com/card-scan/android-integration-guide/android-customization-guide) documentation.
 
 ### Extensive modifications
-
-To modify arrangement or UI functionality, CardScan can be used as a library for your custom implementation. See examples in the [scan-ui-card-android](https://github.com/getbouncer/scan-ui-card-android) repository.
+To modify arrangement or UI functionality, CardScan can be used as a library for your custom implementation. See the [example single-activity demo app](demo/src/main/java/com/getbouncer/cardscan/demo/SingleActivityDemo.java).
 
 ## Developing
-
-See the [development docs](docs/develop.md) for details on developing for CardScan.
+See the [development docs](https://docs.getbouncer.com/card-scan/android-integration-guide/android-development-guide) for details on developing for CardScan.
 
 ## Authors
-
 Adam Wushensky, Sam King, and Zain ul Abi Din
 
 ## License
-
 This library is available under paid and free licenses. See the [LICENSE](LICENSE) file for the full license text.
 
 ### Quick summary

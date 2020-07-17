@@ -34,7 +34,7 @@ public class LaunchActivity extends AppCompatActivity implements CardScanActivit
                         /* activity */ LaunchActivity.this,
                         /* apiKey */ API_KEY,
                         /* enableEnterCardManually */ true,
-                        /* enableNameExtraction */ false,
+                        /* enableExpiryExtraction */ false,
                         /* enableNameExtraction */ false,
                         /* displayCardPan */ true,
                         /* displayCardholderName */ false,
