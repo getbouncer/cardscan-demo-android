@@ -5,4 +5,6 @@ CardScan is the foundation for CardVerify enterprise libraries, which validate t
 
 ![demo](docs/images/demo.gif)
 
+See the full documentation on [docs.getbouncer.com](https://docs.getbouncer.com/card-scan/android-integration-guide)
+
 **This repository has moved! Please see the new codebase at https://github.com/getbouncer/cardscan-android**
